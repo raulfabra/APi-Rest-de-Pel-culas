@@ -1,0 +1,26 @@
+{
+  "name": "apirest_express",
+  "version": "1.0.0",
+  "description": "App creada desde 0, configuración incluida y trabajada con Node.Js (express) y MongoDB. Deployed en Fl[0]",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "test": ""
+  },
+  "keywords": [],
+  "author": "Raul Fabra Herrero",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.19.2",
+    "dotenv": "16.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "3.1.0",
+    "standard": "17.1.0"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/.bin/standard/eslintrc.json"
+  }
+}
