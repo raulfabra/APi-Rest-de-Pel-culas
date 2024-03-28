@@ -1,0 +1,2 @@
+# Validar el cuerpo de una petición POST en el Backend.
+Una de las cosas mas importantes a la hora de crear tus rutas y sobretodo con el methodo POST, es validar los datos. Nos podriamos pasar dias haciendo condicionales para cada prop del objeto (que sea una cadena, que contega una longitud minima, que sea alfanumerica, que empieze por mayuscula, que no, etc, etc, etc.) Para ello tenemos muchas herramientas pero vamos a utilizar ZOD
