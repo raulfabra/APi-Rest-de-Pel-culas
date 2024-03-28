@@ -1,19 +1,17 @@
 import express from 'express'
 import movies from './movies.js'
 import crypto from 'node:crypto'
+import cors from 'cors'
 import v from './schemas/movieSchema.js'
+// import ACCEPTED_ORIGINS from './utils/originsIP.js'
 
 const app = express()
 
 app.disable('x-powered-by') // desactivar una publicidad que meten los des express en la cabezera
 app.use(express.json()) // Esto es para cuando recibimos un req.body y llegue parseado.
-
-app.get('/', (req, res) => {
-  res.send('<h1>Hello World! </h1>')
-})
+app.use(cors())
 
 app.get('/movies', (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5500')
   const { genre } = req.query
   if (genre) {
     const filteredMovies = movies.filter(
@@ -45,6 +43,18 @@ app.post('/movies', (req, res) => {
   movies.push(newMovie)
 
   res.status(201).json(newMovie)
+})
+
+app.delete('/movies/:id', (req, res) => {
+  const { id } = req.params
+  const movieIndex = movies.findIndex(movie => movie.id === id)
+
+  if (movieIndex === -1) {
+    return res.status(404).json({ error: 'Movie Not found' })
+  }
+
+  movies.splice(movieIndex, 1)
+  return res.status(204).json({ message: 'Movie deleted' })
 })
 
 app.patch('/movies/:id', (req, res) => {
