@@ -18,6 +18,8 @@ app.use(cors())
 app.get('/movies', (req, res) => {
   const { genre } = req.query
   if (genre) {
+    // aqui esta la informacion de como se filtran los datos
+    // y de donde se recuperan
     const filteredMovies = movies.filter(
       movie => movie.genre.some(g => g.toLowerCase() === genre.toLowerCase())
     )
