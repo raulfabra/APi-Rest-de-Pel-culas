@@ -1,9 +1,13 @@
 import express from 'express'
-import movies from './movies.js'
+// import movies from './movies.js'
 import crypto from 'node:crypto'
 import cors from 'cors'
 import v from './schemas/movieSchema.js'
 // import ACCEPTED_ORIGINS from './utils/originsIP.js'
+// COMO LEER UN JSON CON ESMODULES RECOMENDADO POR AHORA
+import { createRequire } from 'node:module'
+const require = createRequire(import.meta.url)
+const movies = require('./mocks/movies.json')
 
 const app = express()
 
